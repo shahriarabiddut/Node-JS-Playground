@@ -9,10 +9,19 @@
       integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
       crossorigin="anonymous"
     />
-    <title>Web Scrapping</title>
+    <style>
+      li {
+        text-align: center;
+        list-style: none;
+        list-style-position: initial;
+        list-style-image: initial;
+        list-style-type: none;
+      }
+    </style>
+    <title>Job Listing | Web Scrapping</title>
   </head>
   <body class="bg-success">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Web Scrapping</a>
         <button
@@ -29,13 +38,13 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link" aria-current="page" href="/">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/movie">Movie</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/job">Job Listing</a>
+              <a class="nav-link active" href="/job">Job Listing</a>
             </li>
           </ul>
           <form class="d-flex">
@@ -56,10 +65,13 @@
       <div class="row p-5">
         <div class="col-3"></div>
         <div class="col-6 my-5">
+          <h4 class="bg-info mt-2 p-2 border border-2 border-light-subtle">
+            BDJobs.Com Jobs Scrapper
+          </h4>
           <form
-            action="send-movie"
+            action="send-job"
             method="post"
-            class="my-3 p-5 bg-info border border-2 border-light-subtle"
+            class="mb-3 p-5 bg-info border border-2 border-light-subtle"
           >
             <input
               class="form-control"
@@ -70,16 +82,20 @@
             <div class="d-grid gap-2 my-2">
               <button
                 type="submit"
-                class="btn btn-block btn-danger text-white p-1"
+                class="btn btn-block btn-primary text-white p-1"
               >
                 SEND
               </button>
             </div>
           </form>
-          <% if(value != ''){ %>
+          <% if(title != ''){ %>
           <div class="bg-warning p-3 border border-2 border-danger">
-            <p class="p-1"><b> Movie </b>: <%- title %></p>
-            <p class="p-1"><b>Rating</b> : <%= value %></p>
+            <p class="p-1">Category : <b> <%- cat %> </b></p>
+            <p class="p-1">Title : <b> <%- title %> </b></p>
+            <p class="p-1">Company : <b> <%- company %> </b></p>
+            <%- vacancy %> <%- JobResponsibilities %> <%- EmploymentStatus %>
+            <%- EducationalRequirements %> <%- ExperienceRequirements %> <%-
+            AdditionalRequirements %> <%- JobLocation %> <%- Salary %>
           </div>
           <% } %>
           <div class="text-center text-white py-3">@Shahriar Ahmed Biddut</div>
